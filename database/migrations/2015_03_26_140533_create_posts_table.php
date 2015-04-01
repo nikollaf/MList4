@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration {
             $table->string('category');
             $table->string('url');
             $table->string('query_url');
-            $table->string('approval');
+            $table->string('approval')->default('N');
             $table->timestamps();
         });
 

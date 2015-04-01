@@ -21,9 +21,13 @@ Route::get('user/{id}', 'SocialController@getUser');
 
 Route::resource('post', 'PostController');
 
-Route::get('post',
-    ['as' => 'post', 'uses' => 'PostController@create']);
-Route::post('post',
-    ['as' => 'post_store', 'uses' => 'PostController@store']);
+Route::get('post', ['as' => 'post', 'uses' => 'PostController@create']);
+Route::post('post', ['as' => 'post_store', 'uses' => 'PostController@store']);
+
+Route::get('admin', ['as' => 'admin', 'uses' => 'AdminController@index']);
+Route::post('admin', ['as' => 'admin_store', 'uses' => 'AdminController@store']);
+
+Route::get('tags', 'TagController@index');
+Route::get('tag/{id}', 'TagController@show');
 
 

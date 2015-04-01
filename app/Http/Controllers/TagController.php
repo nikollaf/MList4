@@ -1,16 +1,12 @@
 <?php namespace App\Http\Controllers;
 
-use Illuminate\Http\Requests;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use View;
-use DB;
-use Auth;
-use Form;
 
 use Illuminate\Http\Request;
 
-class PostController extends Controller {
+class TagController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -19,9 +15,7 @@ class PostController extends Controller {
 	 */
 	public function index()
 	{
-        $posts = Post::orderBy('created_at')->where('approval', '=', 'Y')->simplePaginate(15);
-
-		return view('welcome')->with('posts', $posts);
+		return view('tags.index');
 	}
 
 	/**
@@ -29,27 +23,19 @@ class PostController extends Controller {
 	 *
 	 * @return Response
 	 */
-    public function create()
-    {
-        return view('app');
-    }
+	public function create()
+	{
+		//
+	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store()
 	{
-        $data = $request->all();
-        $post = new Post;
-        $post->user_id      = Auth::user()->id;
-        $post->title        = $data['title'];
-        $post->query_url    = str_slug($data['title'], '-');
-        $post->url          = $data['url'];
-        $post->category     = $data['category'];
-        $post->save();
-        return redirect()->back()->with('message', 'Your post has been submitted. We will add it the collection.');
+		//
 	}
 
 	/**
@@ -60,8 +46,8 @@ class PostController extends Controller {
 	 */
 	public function show($id)
 	{
-		$post = Post::where('query_url', '=', $id)->firstOrFail();
-        return view('post.post')->with('post', $post);
+		$posts = Post::where('category', '=', $id);
+        return view('tags.tag')->with('posts', $posts);
 	}
 
 	/**

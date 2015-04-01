@@ -9,6 +9,7 @@
                  data-masonry-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
                 <div class="item">
                     <h4><a href="{{$post->url}}">{{ $post->title}}</a></h4>
+                    <h5><a href="/post/{{$post->query_url}}">See More</a></h5>
                 </div>
             </div>
             @endforeach
