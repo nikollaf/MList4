@@ -4,11 +4,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                {{$post->title}}
+                <h1>{{$post->title}}</h1>
+                <a href="{{$post->url}}" class="btn btn-lg btn-success">Go</a>
             </div>
-            <div class="col-md-4">
-
-            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-8">
+        		
+        	</div>
+        	<div class="col-md-4">
+        		More from {{$post->category}}
+        	</div>
         </div>
     </div>
 @endsection

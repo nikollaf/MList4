@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
 
-	<link href="{{ asset('/stylesheets/styles.css') }}" rel="stylesheet">
+	
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
+    <link href="{{ asset('/stylesheets/styles.css') }}" rel="stylesheet">
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	
@@ -20,6 +20,11 @@
 	<![endif]-->
 </head>
 <body>
+    <div class="top-bar">
+        <div class="container-fluid">
+            <p>The place for social and creative outlet for Muslim millenials to share the best posts.</p>
+        </div>
+    </div>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -70,6 +75,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3>Please Log In</h3>
+                    
                 </div>
                 <div class="modal-body">
                     <a href="{{ url('/login/twitter') }}" class="btn btn-block btn-twitter">
@@ -78,6 +85,7 @@
                     <a href="{{ url('/login/facebook') }}" class="btn btn-block btn-facebook">
                         <i class="ion-social-facebook"></i> Sign in with Facebook
                     </a>
+                    <p class="hint">We will not post anything to your social network or share any of your information.</p>
                 </div>
             </div>
         </div>

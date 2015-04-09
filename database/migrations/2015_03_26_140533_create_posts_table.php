@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration {
             $table->string('url');
             $table->string('query_url');
             $table->string('approval')->default('N');
+            $table->integer('votes');
             $table->timestamps();
         });
 

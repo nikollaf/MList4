@@ -49,6 +49,7 @@ class PostController extends Controller {
         $post->url          = $data['url'];
         $post->category     = $data['category'];
         $post->save();
+        
         return redirect()->back()->with('message', 'Your post has been submitted. We will add it the collection.');
 	}
 
