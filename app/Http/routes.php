@@ -30,4 +30,5 @@ Route::post('admin', ['as' => 'admin_store', 'uses' => 'AdminController@store'])
 Route::get('tags', 'TagController@index');
 Route::get('tag/{id}', 'TagController@show');
 
+Route::post('click', 'DataController@postClick');
 

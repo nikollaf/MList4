@@ -15,14 +15,15 @@ class CreatePostsTable extends Migration {
         Schema::create('posts', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->string('category');
             $table->string('url');
             $table->string('query_url');
-            $table->string('approval')->default('N');
+            $table->string('approval', 1)->default('N');
             $table->integer('votes');
+            $table->integer('clicks');
             $table->timestamps();
         });
 
@@ -36,7 +37,7 @@ class CreatePostsTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('users');
+        Schema::drop('posts');
 	}
 
 }
