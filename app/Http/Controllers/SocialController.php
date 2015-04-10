@@ -43,7 +43,6 @@ class SocialController extends Controller {
 
     public function getUser($id, Request $request, Guard $auth)
     {
-        
         $userSocial = $this->socialite->driver($id)->user();
         $user = User::where('email', '=', $userSocial->email)->get();
 

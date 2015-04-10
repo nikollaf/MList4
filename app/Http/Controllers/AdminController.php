@@ -22,13 +22,10 @@ class AdminController extends Controller {
     {
         if (Auth::check())
         {
-            return redirect()->back();
-            echo "LOGGED IN?";
-        } else {
-            echo "ADMIN";
             $posts = Post::orderBy('created_at')->where('approval', '=', 'N')->simplePaginate(15);
-
             return view('admin.admin')->with('posts', $posts);
+        } else {
+            return redirect()->back();
         }
 
     }

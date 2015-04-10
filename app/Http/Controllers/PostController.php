@@ -19,8 +19,7 @@ class PostController extends Controller {
 	 */
 	public function index()
 	{
-        $posts = Post::orderBy('created_at')->where('approval', '=', 'Y')->simplePaginate(15);
-
+        $posts = Post::orderBy('created_at')->approved()->simplePaginate(15);
 		return view('welcome')->with('posts', $posts);
 	}
 

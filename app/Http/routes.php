@@ -28,7 +28,7 @@ Route::get('admin', ['as' => 'admin', 'uses' => 'AdminController@index']);
 Route::post('admin', ['as' => 'admin_store', 'uses' => 'AdminController@store']);
 
 Route::get('tags', 'TagController@index');
-Route::get('tag/{id}', 'TagController@show');
+Route::get('tags/{id}', 'TagController@show');
 
 Route::post('click', 'DataController@postClick');
 
