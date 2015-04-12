@@ -105,7 +105,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">New Post</h4>
                 </div>
                 <div class="modal-body">
                     <ul>
@@ -121,7 +121,7 @@
                         {!! Form::text('title', null,
                         array('required',
                         'class'=>'form-control',
-                        'placeholder'=>'Title (Less than 140 Characters)')) !!}
+                        'placeholder'=>'Title')) !!}
                     </div>
 
                     <div class="form-group">
@@ -141,7 +141,6 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     {!! Form::submit('Post!',
                     array('class'=>'btn btn-primary')) !!}
                     {!! Form::close() !!}

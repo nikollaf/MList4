@@ -7,14 +7,13 @@ class Post extends Model {
 
     protected $table = 'posts';
 
-<<<<<<< Updated upstream
+
     public function user()
     {
-    	return $this->belongsTo('App\Models\User');
-=======
+        return $this->belongsTo('App\Models\User');
+    }
     public function scopeApproved($query)
     {
         return $query->where('approval', '=', 'Y');
->>>>>>> Stashed changes
     }
 }

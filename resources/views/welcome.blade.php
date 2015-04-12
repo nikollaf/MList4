@@ -6,10 +6,10 @@
         <div class="col-md-8">
             @foreach ($posts as $post)
             <div class="js-masonry"
-                 data-masonry-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
+                 data-masonry-options='{ "columnWidth": 300, "itemSelector": ".item" }'>
                 <div class="item">
-                    <h4><a id="click-post" target="_blank" data-token="{{ csrf_token() }}" data-post="{{$post->id}}" href="{{$post->url}}">{{ $post->title}}</a></h4>
-                    <h5><a href="/post/{{$post->query_url}}">See More</a></h5>
+                    <h4><a class="click-post" target="_blank" data-token="{{ csrf_token() }}" data-post="{{$post->id}}" href="{{$post->url}}">{{ $post->title}}</a></h4>
+                    <h5><a class="see-more" href="/post/{{$post->query_url}}">{{$post->votes}}</a></h5>
                 </div>
             </div>
             @endforeach
@@ -35,6 +35,14 @@
                 <a href="/tag/tech">Tech</a>
             </div>
             <h4>Top Posts in IllMuslims</h4>
+            <ul class="list-unstyled top-posts">
+            @foreach ($top as $key => $post)
+                <li>
+                    <span class="badge">{{$key+1}}</span>
+                    <div><a href="{{$post->url}}">{{$post->title}}</a></div>
+                </li>
+            @endforeach
+            </ul>
         </div>
     </div>
 </div>

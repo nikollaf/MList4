@@ -21,6 +21,8 @@ a {
   color: #90939a;
 }
 
+
+
 .navbar {
   border: 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
@@ -75,15 +77,19 @@ a {
 }
 
 .js-masonry .item {
-  padding: 20px;
+    padding: 15px;
 }
 
 .js-masonry {
-  width: 30%;
+    width: 30%;
 }
 
 .js-masonry:nth-child(2){
   width: 50%;
+}
+
+.js-masonry:nth-child(4) {
+    width: 45%;
 }
 
 .js-masonry:nth-child(7){
@@ -104,6 +110,29 @@ a {
   text-transform: uppercase;
   background-color: #f6f6f6;
   border-color: #cfd9db;
+}
+
+.see-more {
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    color: #90939a;
+    font-weight: 100;
+}
+
+.top-posts li {
+    font-weight: 100;
+    display: block;
+    margin: 18px 0 0;
+}
+
+.top-posts div {
+    margin-left: 35px;
+}
+
+.top-posts span.badge {
+    float: left;
+    margin-top: 5px;
 }
 
 .form-control {

@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use App\Models\Post;
 use View;
@@ -18,16 +17,12 @@ class AdminController extends Controller {
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        if (Auth::check())
-        {
-            $posts = Post::orderBy('created_at')->where('approval', '=', 'N')->simplePaginate(15);
-            return view('admin.admin')->with('posts', $posts);
-        } else {
-            return redirect()->back();
-        }
+        $approve = $request->query('approve');
 
+        $posts = Post::orderBy('created_at')->where('approval', '=', $approve)->simplePaginate(15);
+        return view('admin.admin')->with('posts', $posts);
     }
 
     /**

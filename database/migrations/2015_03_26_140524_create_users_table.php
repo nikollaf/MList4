@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration {
             $table->string('twitter_url');
             $table->string('instagram_url');
             $table->string('password', 60);
+            $table->string('trust', 1)->default('N');
+            $table->string('admin', 1)->default('N');
             $table->rememberToken();
             $table->timestamps();
         });

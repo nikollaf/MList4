@@ -20,7 +20,14 @@ class PostController extends Controller {
 	public function index()
 	{
         $posts = Post::orderBy('created_at')->approved()->simplePaginate(15);
-		return view('welcome')->with('posts', $posts);
+        $top   = Post::take(5)->orderBy('clicks')->approved()->get();
+
+        $data = [
+            'posts' => $posts,
+            'top'  => $top
+        ];
+
+        return view('welcome')->with($data);
 	}
 
 	/**
@@ -47,6 +54,9 @@ class PostController extends Controller {
         $post->query_url    = str_slug($data['title'], '-');
         $post->url          = $data['url'];
         $post->category     = $data['category'];
+        if (Auth::user()->trust = 'Y'){
+            $post->approval = 'Y';
+        }
         $post->save();
         
         return redirect()->back()->with('message', 'Your post has been submitted. We will add it the collection.');
@@ -61,7 +71,15 @@ class PostController extends Controller {
 	public function show($id)
 	{
 		$post = Post::where('query_url', '=', $id)->firstOrFail();
-        return view('post.post')->with('post', $post);
+        $posts = Post::take(10)->orderBy('created_at')
+            ->where('id', '!=' ,$post['id'])
+            ->where('category', 'LIKE', $post['category'])->get();
+
+        $data = [
+            'post' => $post,
+            'posts'  => $posts
+        ];
+        return view('post.post')->with($data);
 	}
 
 	/**

@@ -13,7 +13,12 @@
         		
         	</div>
         	<div class="col-md-4">
-        		More from {{$post->category}}
+        		<h4>More from {{$post->category}}</h4>
+                <ul class="list-unstyled">
+                    @foreach ($posts as $post)
+                        <li>{{$post['title']}}</li>
+                    @endforeach
+                </ul>
         	</div>
         </div>
     </div>

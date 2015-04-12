@@ -18,6 +18,7 @@ class CreateVotesTable extends Migration {
 			$table->integer('post_id')->unsigned()->index();
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->integer('ip');
+            $table->integer('user_id');
 			$table->integer('vote1');
 			$table->integer('vote2');
 			$table->integer('vote3');

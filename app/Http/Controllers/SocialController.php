@@ -54,7 +54,7 @@ class SocialController extends Controller {
             $user->save();
             $this->auth->login($user, true);
         } else {
-            $this->auth->login($user, true);
+            $this->auth->login($user[0], true);
         }
         return redirect('/');
     }

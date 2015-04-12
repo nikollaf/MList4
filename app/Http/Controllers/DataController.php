@@ -15,25 +15,23 @@ class DataController extends Controller {
 	 */
 	public function postClick(Request $request)
 	{
-        $data = $request->all();
+        $input = $request->all();
         $ip   = $request->ip();
-        
 
-	        $post = Post::find($data['postId']);
-	        $post->clicks = $post['clicks'] + 1;
-	        $post->save();
+        $data = Clicks::where('ip', '=', $ip)->where('post_id', '=', $input['postId'])->get();
 
-        print_r($ip);
+        if ($data->isEmpty()){
+            $click = new Clicks;
+            $click->post_id     = $input['postId'];
+            $click->ip          = $ip;
+            $click->save();
 
-        // $post = new Post;
-        // $post->user_id      = Auth::user()->id;
-        // $post->title        = $data['title'];
-        // $post->query_url    = str_slug($data['title'], '-');
-        // $post->url          = $data['url'];
-        // $post->category     = $data['category'];
-        // $post->save();
-        
-        //return redirect()->back()->with('message', 'Your post has been submitted. We will add it the collection.');
+            $post = Post::find($input['postId']);
+            $post->clicks = $post['clicks'] + 1;
+            $post->save();
+        }
+
+
 	}
 
 }
