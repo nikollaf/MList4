@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<title>illMuslims Post</title>
 
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -60,11 +60,10 @@
 		</div>
 	</nav>
 
-    @if (isset($message))
-    <div class="message">
-        <div class="alert alert-info">
-            {{$message}}
-        </div>
+    @if (Session::get('success'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ Session::get('success') }}
     </div>
     @endif
 

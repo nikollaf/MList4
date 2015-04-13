@@ -20,7 +20,7 @@ class PostController extends Controller {
 	public function index()
 	{
         $posts = Post::orderBy('created_at', 'DESC')->approved()->simplePaginate(10);
-        $top   = Post::take(5)->orderBy('clicks', 'DESC')->approved()->get();
+        $top   = Post::take(5)->orderBy('clicks', 'DESC')->currentmonth()->approved()->get();
 
         $data = [
             'posts' => $posts,
@@ -56,10 +56,13 @@ class PostController extends Controller {
         $post->category     = $data['category'];
         if (Auth::user()->trust = 'Y'){
             $post->approval = 'Y';
+            $message = 'Your post has been submitted!';
+        } else {
+        	$message = 'Your post has been submitted. We will add it to the collection after it is approved';
         }
+
         $post->save();
-        
-        return redirect()->back()->with('message', 'Your post has been submitted. We will add it the collection.');
+        return redirect()->back()->with('success', $message);
 	}
 
 	/**

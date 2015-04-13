@@ -26,6 +26,8 @@ Route::post('post', ['as' => 'post_store', 'uses' => 'PostController@store']);
 
 Route::get('admin', ['middleware' => 'admin', 'as' => 'admin', 'uses' => 'AdminController@index']);
 Route::post('admin', ['as' => 'admin_store', 'uses' => 'AdminController@store']);
+Route::get('admin/users', ['middleware' => 'admin', 'uses' => 'AdminController@showUsers']);
+Route::post('admin/users', ['as' => 'user_store', 'uses' => 'AdminController@saveUser']);
 
 Route::get('tags', 'TagController@index');
 Route::get('tag/{id}', 'TagController@show');

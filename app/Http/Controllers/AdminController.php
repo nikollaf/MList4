@@ -3,6 +3,7 @@
 use Illuminate\Http\Requests;
 use Illuminate\Contracts\Auth\Guard;
 use App\Models\Post;
+use App\Models\User;
 use View;
 use DB;
 use Auth;
@@ -50,7 +51,7 @@ class AdminController extends Controller {
         //$post->category     = $data['category'];
         $post->approval     = $data['approval']; 
         $post->save();
-        return redirect()->back()->with('message', 'Your post has been submitted. We will add it the collection.');
+        return redirect()->back()->with('success', 'Your post has been saved.');
     }
 
     /**
@@ -62,6 +63,18 @@ class AdminController extends Controller {
     public function show($id)
     {
         //
+    }
+
+   /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function showUsers()
+    {
+        $users = User::orderBy('created_at')->simplePaginate(15);
+        return view('admin.users')->with('users', $users);
     }
 
     /**
