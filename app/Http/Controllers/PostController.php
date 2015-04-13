@@ -19,8 +19,8 @@ class PostController extends Controller {
 	 */
 	public function index()
 	{
-        $posts = Post::orderBy('created_at')->approved()->simplePaginate(15);
-        $top   = Post::take(5)->orderBy('clicks')->approved()->get();
+        $posts = Post::orderBy('created_at', 'DESC')->approved()->simplePaginate(10);
+        $top   = Post::take(5)->orderBy('clicks', 'DESC')->approved()->get();
 
         $data = [
             'posts' => $posts,

@@ -46,7 +46,7 @@ class TagController extends Controller {
 	 */
 	public function show($id)
 	{
-		$posts = Post::where('category', 'LIKE', $id)->approved()->get();
+		$posts = Post::where('category', 'LIKE', $id)->approved()->simplePaginate(10);
         return view('tags.tag')->with('posts', $posts);
 	}
 
