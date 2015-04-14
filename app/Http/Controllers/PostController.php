@@ -3,6 +3,7 @@
 use Illuminate\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Vote;
 use View;
 use DB;
 use Auth;
@@ -64,6 +65,21 @@ class PostController extends Controller {
         $post->save();
         return redirect()->back()->with('success', $message);
 	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function vote(Request $request)
+	{
+        
+        $vote = new Vote($request->except('_tokent'));
+        $vote->user_id = Auth::user()->id;
+
+        print_r($data);
+	}
+
 
 	/**
 	 * Display the specified resource.

@@ -3,7 +3,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', 'Montserrat', sans-serif;
   font-weight: bold;
 }
 
@@ -49,6 +49,10 @@ ul.nav.nav-pills.admin-pills {
   margin-top: -20px;
 }
 
+ul.list-unstyled.top-posts a {
+  font-weight: 500;
+}
+
 .admin-pills a {
   color: white;
 }
@@ -87,7 +91,7 @@ ul.nav.nav-pills.admin-pills {
 }
 
 .js-masonry .item {
-    height: 160px;
+    height: 145px;
     background: #fff;
     border: 1px solid #333;
     border-color: hsla(0, 0%, 49%, 0.5);
@@ -101,11 +105,15 @@ ul.nav.nav-pills.admin-pills {
 
 .item h4 a {
     color: #555;
-    color: #555;
-    height: 150px;
+    font-weight: 300;
+    height: 125px;
     display: table-cell;
     vertical-align: middle;
     text-decoration: none;
+}
+
+.tag-item a {
+  color: #555;
 }
 
 .collapse-form {
@@ -164,7 +172,6 @@ ul.nav.nav-pills.admin-pills {
 
 .top-posts span.badge {
     float: left;
-    margin-top: 5px;
 }
 
 .form-control {
@@ -250,6 +257,16 @@ ul.nav.nav-pills.admin-pills {
 .profile-picture {
   height: 100px;
   display: block;
+}
+
+.form btn {
+  margin-top: 20px;
+}
+
+i.fa.fa-fw.fa-star, 
+i.fa.fa-fw.fa-star-o,
+i.fa.fa-fw.fa-star-half-o {
+  font-size: 30px;
 }
 
 

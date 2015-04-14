@@ -17,11 +17,11 @@ class CreateVotesTable extends Migration {
 			$table->increments('id');
 			$table->integer('post_id')->unsigned()->index();
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-            $table->integer('ip');
+            $table->string('ip', 50);
             $table->integer('user_id');
-			$table->integer('vote1');
-			$table->integer('vote2');
-			$table->integer('vote3');
+			$table->decimal('vote1', 3, 2);
+			$table->decimal('vote2', 3, 2);
+			$table->decimal('vote3', 3, 2);
 			$table->timestamps();
 		});
 	}

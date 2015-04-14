@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-xs-12">
             @foreach ($posts as $post)
             <div class="js-masonry"
                  data-masonry-options='{ "itemSelector": ".item" }'>
@@ -18,7 +18,7 @@
                 {!! $posts->render() !!}
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-12">
             <h4>Categories</h4>
             <div class="tags tags--postTags tags--light">
                 <a href="/tag/art">Art</a>

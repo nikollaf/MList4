@@ -1,16 +1,19 @@
 @extends('app')
 
 @section('content')
-    <div class="container">
+    <div class="container tag">
         <div class="row">
+            <h1 class="text-capitalize text-center">{{ $tag }}</h1>
             <div class="col-md-8">
-                @foreach ($posts as $post)
-
-                        <div class="item">
-                            <h4><a class="click-post" target="_blank" data-token="{{ csrf_token() }}" data-post="{{$post->id}}" href="{{$post->url}}">{{ $post->title}}</a></h4>
-
-                        </div>
-
+                @foreach ($posts as $key => $post)
+                <div class="row tag-item">
+                    <div class="col-md-1">
+                        <h4>{{$key + 1}}</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <h4><a class="click-post" target="_blank" data-token="{{ csrf_token() }}" data-post="{{$post->id}}" href="{{$post->url}}">{{ $post->title}}</a></h4>
+                    </div>
+                </div>
                 @endforeach
 
                 <div class="col-md-12">

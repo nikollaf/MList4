@@ -8,4 +8,14 @@ $(document).ready(function(){
 			_token: $(this).data('token')
 		});
 	});
+
+	/*
+	* Rate/Vote system
+	*/
+
+	$('#vote1').raty({
+		half: true,
+		scoreName: 'vote1'
+	});
+
 });

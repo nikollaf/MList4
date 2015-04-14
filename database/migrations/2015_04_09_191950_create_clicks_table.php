@@ -17,7 +17,7 @@ class CreateClicksTable extends Migration {
 			$table->increments('id');
 			$table->integer('post_id')->unsigned()->index();
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-            $table->string('ip');
+            $table->string('ip', 50);
 			$table->timestamps();
 		});
 	}
