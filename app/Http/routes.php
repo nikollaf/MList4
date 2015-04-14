@@ -33,4 +33,4 @@ Route::get('tags', 'TagController@index');
 Route::get('tag/{id}', 'TagController@show');
 
 Route::post('click', 'DataController@postClick');
-
+Route::post('vote', ['as' => 'vote', 'uses' => 'PostController@vote']);

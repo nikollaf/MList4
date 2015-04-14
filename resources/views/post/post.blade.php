@@ -10,7 +10,13 @@
         </div>
         <div class="row">
         	<div class="col-md-8">
-        		
+                {!! Form::open(array('route' => 'vote', 'class' => 'form')) !!}
+
+
+                <input type="hidden" name="id" value="{{$post->id}}"/>
+                {!! Form::submit('Post!',
+                array('class'=>'btn btn-primary btn-success')) !!}
+                {!! Form::close() !!}
         	</div>
         	<div class="col-md-4">
         		<h4>More from {{$post->category}}</h4>

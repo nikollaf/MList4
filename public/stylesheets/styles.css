@@ -108,6 +108,10 @@ ul.nav.nav-pills.admin-pills {
     text-decoration: none;
 }
 
+.collapse-form {
+    margin-bottom: 10px;
+}
+
 .js-masonry {
     width: 30%;
 }
