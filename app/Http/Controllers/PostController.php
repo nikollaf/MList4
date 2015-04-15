@@ -83,7 +83,7 @@ class PostController extends Controller {
 	        $vote->user_id = Auth::user()->id;
 	        $vote->save();
 	        $post = Post::find($input['post_id']);
-	        if (!$post->votes) {
+	        if ($post->votes != '') {
 	        	$post->votes = ($post['votes'] + $average) / 2;
 	        } else {
 	        	$post->votes = $average;

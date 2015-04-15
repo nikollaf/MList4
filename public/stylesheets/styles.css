@@ -117,11 +117,16 @@ ul.list-unstyled.top-posts a {
 
 .item h4 a {
     color: #555;
-    font-weight: 300;
+    font-weight: 400;
     height: 125px;
     display: table-cell;
     vertical-align: middle;
     text-decoration: none;
+}
+
+a.click-post::first-letter {
+  font-weight: 600;
+  font-size: 19px;
 }
 
 .tag-item a {
@@ -141,11 +146,11 @@ ul.list-unstyled.top-posts a {
 }
 
 .js-masonry:nth-child(4) {
-    width: 55%;
+    width: 65%;
 }
 
 .js-masonry:nth-child(7){
-  width: 55%;
+  width: 65%;
 }
 
 

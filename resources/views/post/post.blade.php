@@ -18,8 +18,10 @@
         <div class="row">
         	<div class="col-md-6">
                     {!! Form::open(array('route' => 'vote', 'class' => 'form')) !!}
+                    @if (count($vote) > 0)
+                        <p>Thanks for your vote!</p>
+                    @endif
                     <h4>Interesting.</h4>
-                    <p>Did you find this post interesting?</p>
                     @if(count($vote) > 0)
                         <div class="progress">
                           <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ ($vote->vote1 / 5) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($vote->vote1 / 5) * 100}}%">
@@ -27,10 +29,10 @@
                           </div>
                         </div>
                     @else
+                        <p>Did you find this post interesting?</p>
                         <div id="vote1"></div>
                     @endif
                     <h4>Entertaining.</h4>
-                    <p>Did you find this post entertaining?</p>
                     @if(count($vote) > 0)
                         <div class="progress">
                           <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="{{ ($vote->vote2 / 5) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($vote->vote2 / 5) * 100}}%">
@@ -38,10 +40,11 @@
                           </div>
                         </div>
                     @else
+                        <p>Did you find this post entertaining?</p>
                         <div id="vote2"></div>
                     @endif
                     <h4>Engrossing.</h4>
-                    <p>Did you find this post engrossing?</p>
+                    
                      @if(count($vote) > 0)
                         <div class="progress">
                           <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="{{ ($vote->vote3 / 5) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($vote->vote3 / 5) * 100}}%">
@@ -49,6 +52,7 @@
                           </div>
                         </div>
                     @else
+                        <p>Did you find this post engrossing?</p>
                         <div id="vote3"></div>
                     @endif
 
