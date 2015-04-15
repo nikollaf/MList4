@@ -73,11 +73,27 @@ class PostController extends Controller {
 	 */
 	public function vote(Request $request)
 	{
-        
-        $vote = new Vote($request->except('_tokent'));
-        $vote->user_id = Auth::user()->id;
+		$input = $request->except('_token');
+        $data = Vote::where('user_id', '=', Auth::user()->id)->where('post_id', '=', $input['post_id'])->first();
+        $average = ($input['vote1'] + $input['vote2'] + $input['vote3']) / 3;
 
-        print_r($data);
+
+        if (! $data ) { 
+	        $vote = new Vote($input);
+	        $vote->user_id = Auth::user()->id;
+	        $vote->save();
+	        $post = Post::find($input['post_id']);
+	        if (!$post->votes) {
+	        	$post->votes = ($post['votes'] + $average) / 2;
+	        } else {
+	        	$post->votes = $average;
+	        }
+	        $post->save();
+	        return redirect()->back()->with('success', 'Thanks for your vote!');
+	    } else {
+	    	return redirect()->back()->with('success', 'You\'ve already voted!');
+	    }
+        
 	}
 
 
@@ -92,11 +108,14 @@ class PostController extends Controller {
 		$post = Post::where('query_url', '=', $id)->firstOrFail();
         $posts = Post::take(10)->orderBy('created_at')
             ->where('id', '!=' ,$post['id'])
+            ->currentmonth()
             ->where('category', 'LIKE', $post['category'])->get();
+        $vote = Vote::where('user_id', '=', Auth::user()->id)->where('post_id', '=', $post['id'])->first();
 
         $data = [
             'post' => $post,
-            'posts'  => $posts
+            'posts'  => $posts,
+            'vote' => $vote
         ];
         return view('post.post')->with($data);
 	}

@@ -17,5 +17,13 @@ $(document).ready(function(){
 		half: true,
 		scoreName: 'vote1'
 	});
+	$('#vote2').raty({
+		half: true,
+		scoreName: 'vote2'
+	});
+	$('#vote3').raty({
+		half: true,
+		scoreName: 'vote3'
+	});
 
 });

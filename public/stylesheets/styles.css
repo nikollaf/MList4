@@ -65,6 +65,18 @@ ul.list-unstyled.top-posts a {
   padding: 15px;
 }
 
+.btn-vote {
+  margin-top: 15px;
+  width: 213px;
+}
+
+.post-vote-number h2 {
+  color: red;
+  font-size: 57px;
+  padding-top: 8px;
+  font-weight: 100;
+}
+
 .navbar-default {
   color: #fff;
   background: #edeceb;
@@ -266,7 +278,7 @@ ul.list-unstyled.top-posts a {
 i.fa.fa-fw.fa-star, 
 i.fa.fa-fw.fa-star-o,
 i.fa.fa-fw.fa-star-half-o {
-  font-size: 30px;
+  font-size: 35px;
 }
 
 

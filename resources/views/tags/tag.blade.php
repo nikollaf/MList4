@@ -3,7 +3,7 @@
 @section('content')
     <div class="container tag">
         <div class="row">
-            <h1 class="text-capitalize text-center">{{ $tag }}</h1>
+            <h1 class="text-capitalize">{{ $tag }}</h1>
             <div class="col-md-8">
                 @foreach ($posts as $key => $post)
                 <div class="row tag-item">

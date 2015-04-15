@@ -9,7 +9,7 @@
                  data-masonry-options='{ "itemSelector": ".item" }'>
                 <div class="item">
                     <h4><a class="click-post" target="_blank" data-token="{{ csrf_token() }}" data-post="{{$post->id}}" href="{{$post->url}}">{{ $post->title}}</a></h4>
-                    <h5><a class="see-more" href="/post/{{$post->query_url}}">{{$post->votes}}</a></h5>
+                    <h5><a class="see-more" href="/post/{{$post->query_url}}">{{isset($post->votes) ? $post->votes : 'Vote'}}</a></h5>
                 </div>
             </div>
             @endforeach
