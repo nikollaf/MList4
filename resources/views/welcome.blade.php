@@ -21,22 +21,9 @@
         <div class="col-md-4 col-xs-12">
             <h4>Categories</h4>
             <div class="tags tags--postTags tags--light">
-                <a href="/tag/art">Art</a>
-                <a href="/tag/women-in-islam">Women in Islam</a>
-                <a href="/tag/racial-equality">Racial Equality</a>
-                <a href="/tag/america">America</a>
-                <a href="/tag/quran">Qur'an</a>
-                <a href="/tag/news">News</a>
-                <a href="/tag/politcs">Politics</a>
-                <a href="/tag/social-network">Social Network</a>
-                <a href="/tag/design">Design</a>
-                <a href="/tag/education">Education</a>
-                <a href="/tag/entrepreneurship">Entrepreneurship</a>
-                <a href="/tag/fashion">Fashion</a>
-                <a href="/tag/medium">Medium</a>
-                <a href="/tag/music">Music</a>
-                <a href="/tag/travel">Travel</a>
-                <a href="/tag/tech">Tech</a>
+                @foreach ($categories as $category)
+                    <a href="/tag/{{$category->label}}">{{$category->label}}</a>
+                @endforeach
             </div>
             <h4>Top Posts in IllMuslims</h4>
             <ul class="list-unstyled top-posts">

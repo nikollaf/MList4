@@ -134,6 +134,9 @@
                     </div>
 
                     <div class="form-group">
+                        @foreach ($categories as $category)
+                            <a href="/tag/{{$category->label}}">{{$category->label}}</a>
+                        @endforeach
                         {!! Form::label('Category') !!}
                         {!! Form::text('category', null,
                         array('required',

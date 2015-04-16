@@ -44,17 +44,22 @@ class SocialController extends Controller {
     public function getUser($id, Request $request, Guard $auth)
     {
         $userSocial = $this->socialite->driver($id)->user();
-        $user = User::where('email', '=', $userSocial->email)->get();
+        print_r($userSocial);
+       
+        $user = User::where('email', '=', $userSocial->email)
+                            ->orWhere('nickname', '=', $userSocial->nickname)
+                            ->first();
 
-        if ($user->isEmpty()) {
+        if (! $user) {
             $user = new User;
             $user->name     = $userSocial->name;
+            $user->nickname = $userSocial->nickname;
             $user->email    = $userSocial->email;
             $user->avatar   = $userSocial->avatar;
             $user->save();
             $this->auth->login($user, true);
         } else {
-            $this->auth->login($user[0], true);
+            $this->auth->login($user, true);
         }
         return redirect('/');
     }

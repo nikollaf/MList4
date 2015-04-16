@@ -4,6 +4,7 @@ use Illuminate\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Vote;
+use App\Models\Category;
 use View;
 use DB;
 use Auth;
@@ -22,10 +23,12 @@ class PostController extends Controller {
 	{
         $posts = Post::orderBy('created_at', 'DESC')->approved()->simplePaginate(10);
         $top   = Post::take(5)->orderBy('clicks', 'DESC')->currentmonth()->approved()->get();
+        $categories = Category::get();
 
         $data = [
             'posts' => $posts,
-            'top'  => $top
+            'top'  => $top,
+            'categories' => $categories
         ];
 
         return view('welcome')->with($data);

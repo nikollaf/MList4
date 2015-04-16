@@ -4,6 +4,7 @@ use Illuminate\Http\Requests;
 use Illuminate\Contracts\Auth\Guard;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Category;
 use View;
 use DB;
 use Auth;
@@ -75,6 +76,49 @@ class AdminController extends Controller {
     {
         $users = User::orderBy('created_at')->simplePaginate(15);
         return view('admin.users')->with('users', $users);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function showCategories()
+    {
+        $categories = Category::get();
+        return view('admin.category')->with('categories', $categories);
+    }
+
+      /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function saveCategory(Request $request)
+    {
+        $data = $request->all();
+        $post = new Category;
+        $post->label        = $data['label'];
+        $post->color        = $data['color'];
+        $post->save();
+        return redirect()->back()->with('success', 'Your category has been saved.');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function updateCategory(Request $request)
+    {
+        $data = $request->all();
+        $category = Category::find($data['id']);
+        $category->label        = $data['label'];
+        $category->color        = $data['color'];
+        $category->save();
+        return redirect()->back()->with('success', 'Your category has been updated.');
     }
 
     /**

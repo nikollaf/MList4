@@ -16,7 +16,10 @@ class CreateUsersTable extends Migration {
         {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
+            $table->string('nickname')->unique()->nullable();
+            $table->integer('facebook_id')->nullable();
+            $table->integer('twitter_id')->nullable();
             $table->string('avatar');
             $table->string('url');
             $table->string('twitter_url');
