@@ -21,7 +21,7 @@ class PostController extends Controller {
 	 */
 	public function index()
 	{
-        $posts = Post::orderBy('created_at', 'DESC')->approved()->simplePaginate(10);
+        $posts = Post::orderBy('created_at', 'DESC')->approved()->categories()->simplePaginate(10);
         $top   = Post::take(5)->orderBy('clicks', 'DESC')->currentmonth()->approved()->get();
         $categories = Category::get();
 
@@ -57,7 +57,7 @@ class PostController extends Controller {
         $post->title        = $data['title'];
         $post->query_url    = str_slug($data['title'], '-');
         $post->url          = $data['url'];
-        $post->category     = $data['category'];
+        $post->category_id  = $data['category_id'];
         if (Auth::user()->trust = 'Y'){
             $post->approval = 'Y';
             $message = 'Your post has been submitted!';
@@ -108,11 +108,11 @@ class PostController extends Controller {
 	 */
 	public function show($id)
 	{
-		$post = Post::where('query_url', '=', $id)->firstOrFail();
+		$post = Post::where('query_url', '=', $id)->categories()->first();
         $posts = Post::take(10)->orderBy('created_at')
-            ->where('id', '!=' ,$post['id'])
+            ->where('id', '!=' , $post['id'])
             ->currentmonth()
-            ->where('category', 'LIKE', $post['category'])->get();
+            ->where('category_id', '=', $post['category_id'])->get();
         $vote = Vote::where('user_id', '=', Auth::user()->id)->where('post_id', '=', $post['id'])->first();
 
         $data = [

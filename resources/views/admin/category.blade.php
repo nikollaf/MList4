@@ -11,7 +11,7 @@
             <h3>Admin Categories</h3>
             <div class="col-md-8">
                 @foreach ($categories as $category)
-                    {!! Form::open(array('route' => 'category_update', 'class' => 'form-inline')) !!}
+                    {!! Form::open(array('route' => 'category_store', 'class' => 'form-inline')) !!}
                     <div class="form-group">
                         <input type="text" class="form-control" name="label" value="{{$category->label}}">
                     </div>
@@ -35,6 +35,7 @@
                         <label for="exampleInputEmail2">Color</label>
                         <input type="color" class="form-control" name="color" placeholder="Insert HEX number like #434535">
                     </div>
+                    <input type="hidden" name="id" value="0">
                     {!! Form::submit('Submit',
                     array('class'=>'btn btn-primary btn-success')) !!}
                     {!! Form::close() !!}

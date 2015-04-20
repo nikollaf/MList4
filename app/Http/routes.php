@@ -29,8 +29,8 @@ Route::post('admin', ['as' => 'admin_store', 'uses' => 'AdminController@store'])
 Route::get('admin/users', ['middleware' => 'admin', 'uses' => 'AdminController@showUsers']);
 Route::post('admin/users', ['as' => 'user_update', 'uses' => 'AdminController@saveUser']);
 Route::get('admin/category', ['middleware' => 'admin', 'uses' => 'AdminController@showCategories']);
-Route::post('admin/category', ['as' => 'category_store', 'uses' => 'AdminController@saveCategory']);
-Route::post('admin/category', ['as' => 'category_update', 'uses' => 'AdminController@updateCategory']);
+
+Route::post('admin/category', ['as' => 'category_store', 'uses' => 'AdminController@updateCategory']);
 
 
 Route::get('tags', 'TagController@index');

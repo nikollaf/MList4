@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 use DB;
 
 
@@ -21,6 +22,11 @@ class Post extends Model {
     public function scopeCurrentMonth($query)
     {
     	return $query->where(DB::raw('MONTH(created_at)'), '=', date('n'));
+    }
+
+    public function scopeCategories($query)
+    {
+        return $query->join('categories', 'posts.category_id', '=', 'categories.id');
     }
 
 }

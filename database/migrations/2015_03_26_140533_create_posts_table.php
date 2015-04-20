@@ -17,8 +17,9 @@ class CreatePostsTable extends Migration {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('category_id')->unsigned()->index();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('title');
-            $table->string('category');
             $table->string('url');
             $table->string('query_url');
             $table->string('approval', 1)->default('T');

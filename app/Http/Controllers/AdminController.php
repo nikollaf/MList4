@@ -23,8 +23,15 @@ class AdminController extends Controller {
     {
         $approve = $request->query('approve');
 
-        $posts = Post::orderBy('created_at')->where('approval', '=', $approve)->simplePaginate(15);
-        return view('admin.admin')->with('posts', $posts);
+        $posts = Post::orderBy('created_at', 'DESC')->where('approval', '=', $approve)->categories()->simplePaginate(15);
+        $categories = Category::get();
+
+        $data = [
+            'posts' => $posts,
+            'categories' => $categories
+        ];
+
+        return view('admin.admin')->with($data);
     }
 
     /**
@@ -98,10 +105,7 @@ class AdminController extends Controller {
     public function saveCategory(Request $request)
     {
         $data = $request->all();
-        $post = new Category;
-        $post->label        = $data['label'];
-        $post->color        = $data['color'];
-        $post->save();
+        
         return redirect()->back()->with('success', 'Your category has been saved.');
     }
 
@@ -114,10 +118,19 @@ class AdminController extends Controller {
     public function updateCategory(Request $request)
     {
         $data = $request->all();
-        $category = Category::find($data['id']);
-        $category->label        = $data['label'];
-        $category->color        = $data['color'];
-        $category->save();
+        print_r($data);
+        if ( $data['id'] == 0 ) {
+            $post = new Category;
+            $post->label        = $data['label'];
+            $post->color        = $data['color'];
+            $post->save();
+        } else {
+            $category = Category::find($data['id']);
+            $category->label        = $data['label'];
+            $category->color        = $data['color'];
+            $category->save();
+        }
+        
         return redirect()->back()->with('success', 'Your category has been updated.');
     }
 

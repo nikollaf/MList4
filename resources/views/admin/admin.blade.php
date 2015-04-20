@@ -27,16 +27,22 @@
                         <h5>Url</h5>
                         <input type="text" class="form-control" name="url" value="{{$post->url}}"/>
                         <h5>Category</h5>
-                        <select name="category">
-
+                        <select name="category" class="form-control">
+                        <option value="{{$post->category}}" value="{{$post->category_id}}" selected="selected">{{$post->label}}</option>
+                        @foreach ($categories as $category)
+                                
+                                <option value="{{$category->id}}">
+                                    {{$category->label}}
+                                </option>
+                        @endforeach
                         </select>
 
                         <h5>Approve It?</h5>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 Yes <input type="radio" class="form-control" name="approval" value="Y"/>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 No <input type="radio" class="form-control" name="approval" value="N"/>
                             </div>
                         </div>

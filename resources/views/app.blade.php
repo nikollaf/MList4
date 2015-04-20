@@ -121,27 +121,27 @@
                         {!! Form::label('Title') !!}
                         {!! Form::text('title', null,
                         array('required',
-                        'class'=>'form-control',
-                        'placeholder'=>'Title')) !!}
+                        'class'=>'form-control')) !!}
                     </div>
 
                     <div class="form-group">
                         {!! Form::label('Url') !!}
                         {!! Form::url('url', null,
                         array('required',
-                        'class'=>'form-control',
-                        'placeholder'=>'Url')) !!}
+                        'class'=>'form-control')) !!}
                     </div>
 
                     <div class="form-group">
-                        @foreach ($categories as $category)
-                            <a href="/tag/{{$category->label}}">{{$category->label}}</a>
-                        @endforeach
                         {!! Form::label('Category') !!}
-                        {!! Form::text('category', null,
-                        array('required',
-                        'class'=>'form-control',
-                        'placeholder'=>'Category')) !!}
+                        <br>
+                        @foreach ($categories as $category)
+                            <div class="category-group col-md-3">
+                                <input type="radio" name="category_id" value="{{$category->id}}">
+                                <label for="category" style="color: {{$category->color}}">
+                                    {{$category->label}}
+                                </label>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="modal-footer">
