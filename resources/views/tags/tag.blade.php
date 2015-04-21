@@ -7,40 +7,34 @@
             <div class="col-md-8">
                 @foreach ($posts as $key => $post)
                 <div class="row tag-item">
-                    <div class="col-md-1">
-                        <h4>{{$key + 1}}</h4>
+                    <div class="col-md-1 count">
+                        <h4>{{ $key + 1 }}</h4>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-1 rate">
+                        <a href="/post/{{$post->query_url}}">
+                            {{ $post->votes }}
+                        </a>
+                    </div>
+                    <div class="col-md-8">
                         <h4><a class="click-post" target="_blank" data-token="{{ csrf_token() }}" data-post="{{$post->id}}" href="{{$post->url}}">{{ $post->title}}</a></h4>
+                        <p>{{ $post->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
                 @endforeach
-
-                <div class="col-md-12">
-                    {!! $posts->render() !!}
-                </div>
             </div>
             <div class="col-md-4">
                 <h4>Categories</h4>
                 <div class="tags tags--postTags tags--light">
-                    <a href=""/tag/ellen-pao">Ellen Pao</a>
-                    <a href="/tag/women-in-tech">Women in Tech</a>
-                    <a href="/tag/gender-equality">Gender Equality</a>
-                    <a href="/tag/indiana">Indiana</a>
-                    <a href="/tag/periscope">Periscope</a>
-                    <a href="/tag/meerkat">Meerkat</a>
-                    <a href="/tag/march-madness">March Madness</a>
-                    <a href="/tag/facebook">Facebook</a>
-                    <a href="/tag/design">Design</a>
-                    <a href="/tag/education">Education</a>
-                    <a href="/tag/entrepreneurship">Entrepreneurship</a>
-                    <a href="/tag/fashion">Fashion</a>
-                    <a href="/tag/medium">Medium</a>
-                    <a href="/tag/music">Music</a>
-                    <a href="/tag/travel">Travel</a>
-                    <a href="/tag/tech">Tech</a>
+                    @foreach ($categories as $category)
+                        <a href="/tag/{{$category->label}}">{{$category->label}}</a>
+                    @endforeach
                 </div>
 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                {!! $posts->render() !!}
             </div>
         </div>
     </div>

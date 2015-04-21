@@ -22,10 +22,8 @@
     </div>
 </div>
 <div class="categories">
-    <div>
         @foreach ($categories as $category)
-            <a href="/tag/{{$category->label}}">{{$category->label}}</a>
+            <a style="border-color: {{$category->color}}; color: {{$category->color}}" href="/tag/{{$category->label}}">{{$category->label}}</a>
         @endforeach
-    </div>
 </div>
 @endsection

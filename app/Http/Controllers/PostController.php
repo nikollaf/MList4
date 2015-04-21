@@ -114,11 +114,16 @@ class PostController extends Controller {
             ->currentmonth()
             ->where('category_id', '=', $post['category_id'])->get();
         $vote = Vote::where('user_id', '=', Auth::user()->id)->where('post_id', '=', $post['id'])->first();
+        $votes = Vote::where('post_id', '=', $post['id'])
+        			->select(DB::raw('AVG(vote1) AS vote1average'), DB::raw('AVG(vote2) AS vote2average'), DB::raw('AVG(vote3) AS vote3average'))
+        			->first();
+        print_r($votes);
 
         $data = [
-            'post' => $post,
-            'posts'  => $posts,
-            'vote' => $vote
+            'post' 	=> $post,
+            'posts' => $posts,
+            'vote' 	=> $vote,
+            'votes' => $votes
         ];
         return view('post.post')->with($data);
 	}

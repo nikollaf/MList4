@@ -56,7 +56,7 @@ class AdminController extends Controller {
         $post->title        = $data['title'];
         $post->query_url    = str_slug($data['title'], '-');
         $post->url          = $data['url'];
-        //$post->category     = $data['category'];
+        $post->category     = $data['category'];
         $post->approval     = $data['approval']; 
         $post->save();
         return redirect()->back()->with('success', 'Your post has been saved.');
@@ -83,6 +83,35 @@ class AdminController extends Controller {
     {
         $users = User::orderBy('created_at')->simplePaginate(15);
         return view('admin.users')->with('users', $users);
+    }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function saveuser(Request $request)
+    {
+        $data = $request->input();
+        print_r($data);
+
+        $user = User::find($data['id']);
+        if ($request->has('admin')) {
+            $user->admin     = $data['admin'];
+        } else {
+            $user->admin     = 'N';
+        }
+        if ($request->has('trust')) {
+            $user->trust     = $data['trust'];
+        } else {
+            $user->trust     = 'N';
+        }
+        
+        $user->save();
+
+        
+        //return redirect()->back()->with('success', 'The user has been updated.');
     }
 
     /**
@@ -118,7 +147,6 @@ class AdminController extends Controller {
     public function updateCategory(Request $request)
     {
         $data = $request->all();
-        print_r($data);
         if ( $data['id'] == 0 ) {
             $post = new Category;
             $post->label        = $data['label'];

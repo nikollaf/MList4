@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class TagController extends Controller {
 	 */
 	public function index()
 	{
-		return view('tags.index');
+		$categories = Category::get();
+		return view('tags.index')->with('categories', $categories);
 	}
 
 	/**
@@ -46,8 +48,10 @@ class TagController extends Controller {
 	 */
 	public function show($id)
 	{
-		$posts = Post::where('category', 'LIKE', $id)->approved()->simplePaginate(10);
-        return view('tags.tag')->with(['posts' => $posts, 'tag' => $id]);
+		$categories = Category::get();
+		$category = Category::where('label', 'LIKE', $id)->first();
+		$posts = Post::where('category_id', '=', $category['id'])->orderBy('created_at', 'DESC')->approved()->simplePaginate(10);
+        return view('tags.tag')->with(['posts' => $posts, 'tag' => $category['label'], 'categories' => $categories]);
 	}
 
 	/**

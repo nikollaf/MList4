@@ -2,13 +2,9 @@
 
 @section('content')
     <div class="container">
-        <ul class="nav nav-pills admin-pills">
-            <li role="navigation" class="label-default"><a href="{{ url('/admin?approve=T') }}">Approve Posts?</a></li>
-            <li role="navigation" class="label-success"><a href="{{ url('/admin?approve=Y') }}">See Top Posts</a></li>
-            <li role="navigation" class="label-danger"><a href="{{ url('/admin?approve=N') }}">Reject Posts</a></li>
-        </ul>
+        @include('admin.nav')
         <div class="row">
-            <h3>Admin Categories</h3>
+            <h3>Categories</h3>
             <div class="col-md-8">
                 @foreach ($categories as $category)
                     {!! Form::open(array('route' => 'category_store', 'class' => 'form-inline')) !!}

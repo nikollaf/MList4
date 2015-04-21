@@ -174,8 +174,41 @@ a.click-post::first-letter {
   color: #555;
 }
 
+.form-group {
+  margin-right: 10px;
+}
+
+input[type="color"] {
+  width: 60px !important;
+}
+
+.categories a {
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  background: #fafafa;
+  border-radius: 2px;
+  padding: 3px 10px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  letter-spacing: 0;
+  border: 1px solid #f0f0f0;
+}
+
+.category-section {
+
+}
+
 .collapse-form {
     margin-bottom: 10px;
+    border: 1px solid #e2e2e2;
+    padding: 10px;
+}
+
+.collapse-form .btn {
+  margin: 10px auto;
+  display: block;
 }
 
 .js-masonry {
