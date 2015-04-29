@@ -117,13 +117,14 @@ class PostController extends Controller {
         $votes = Vote::where('post_id', '=', $post['id'])
         			->select(DB::raw('AVG(vote1) AS vote1average'), DB::raw('AVG(vote2) AS vote2average'), DB::raw('AVG(vote3) AS vote3average'))
         			->first();
-        print_r($votes);
+       	$categories = Category::get();
 
         $data = [
             'post' 	=> $post,
             'posts' => $posts,
             'vote' 	=> $vote,
-            'votes' => $votes
+            'votes' => $votes,
+            'categories' => $categories
         ];
         return view('post.post')->with($data);
 	}

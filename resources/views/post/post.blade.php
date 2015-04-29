@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', '')
+@section('title', $post->title)
 
 @section('content')
     <div class="container">
@@ -27,7 +27,7 @@
                         <span class="sr-only">{{ ($votes->vote1average / 5) * 100}}</span>
                       </div>
                     </div>
-                    @if(count($vote) < 0)
+                    @if(!count($vote))
                         <p>Did you find this post interesting?</p>
                         <div id="vote1"></div>
                     @endif
@@ -72,6 +72,13 @@
                         <li><a href="{{$post->query_url}}">{{$post['title']}}</a></li>
                     @endforeach
                 </ul>
+
+                <h4>Categories</h4>
+                <div class="tags tags--postTags tags--light">
+                    @foreach ($categories as $category)
+                        <a style="border-color: {{$category->color}}; color: {{$category->color}}" href="/tag/{{$category->label}}">{{$category->label}}</a>
+                    @endforeach
+                </div>
         	</div>
         </div>
     </div>
