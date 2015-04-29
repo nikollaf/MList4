@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', '')
+@section('title', $post->title)
 
 @section('content')
     <div class="container">
