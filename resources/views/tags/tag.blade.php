@@ -1,4 +1,5 @@
 @extends('app')
+@section('title', $tag)
 
 @section('content')
     <div class="container tag">
