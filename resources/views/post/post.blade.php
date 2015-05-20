@@ -21,7 +21,7 @@
                     @if (count($vote) > 0)
                         <p>Thanks for your vote!</p>
                     @endif
-                    <h4>Interesting.</h4>                   
+                    <h4>Interesting. {{ round($votes->vote1average, 2) }}</h4>                   
                     <div class="progress">
                       <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ ($votes->vote1average / 5) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($votes->vote1average / 5) * 100}}%">
                         <span class="sr-only">{{ ($votes->vote1average / 5) * 100}}</span>

@@ -108,7 +108,7 @@ class PostController extends Controller {
 	 */
 	public function show($id)
 	{
-		$post = Post::where('query_url', '=', $id)->categories()->first();
+		$post = Post::where('posts.query_url', '=', $id)->categories()->select('posts.id', 'posts.title', 'posts.url')->first();
         $posts = Post::take(10)->orderBy('created_at')
             ->where('id', '!=' , $post['id'])
             ->currentmonth()
