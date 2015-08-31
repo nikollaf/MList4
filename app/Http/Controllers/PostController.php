@@ -113,7 +113,12 @@ class PostController extends Controller {
             ->where('id', '!=' , $post['id'])
             ->currentmonth()
             ->where('category_id', '=', $post['category_id'])->get();
-        $vote = Vote::where('user_id', '=', Auth::user()->id)->where('post_id', '=', $post['id'])->first();
+        if (Auth::check()){
+        	$vote = Vote::where('user_id', '=', Auth::user()->id)->where('post_id', '=', $post['id'])->first();
+        } else {
+        	$vote = [];
+        }
+        
         $votes = Vote::where('post_id', '=', $post['id'])
         			->select(DB::raw('AVG(vote1) AS vote1average'), DB::raw('AVG(vote2) AS vote2average'), DB::raw('AVG(vote3) AS vote3average'))
         			->first();
@@ -126,6 +131,8 @@ class PostController extends Controller {
             'votes' => $votes,
             'categories' => $categories
         ];
+
+        //return response()->json($data);
         return view('post.post')->with($data);
 	}
 
