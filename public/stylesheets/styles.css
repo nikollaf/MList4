@@ -1,6 +1,6 @@
 body {
   font-family: 'Roboto', 'Open Sans', sans-serif;
-  background-color: #fcfcfc;
+  background-color: #edeceb;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -20,7 +20,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-add {
     margin-top: 7px;
-    border-radius: 45px;
+    border-radius: 6px;
+    background-color: rgb(0, 74, 0);
+    color: white !important;
 }
 
 .categories {
@@ -32,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar {
   border: 0;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+  border-radius: 0;
 }
 
 .navbar-header {
@@ -88,6 +90,8 @@ ul.list-unstyled.top-posts a {
 .navbar-default {
   color: #fff;
   background: #edeceb;
+  border-bottom: 1px solid #d2d6d5;
+  border-top: 1px solid #d2d6d5;
 }
 
 .count {
@@ -326,10 +330,10 @@ ul.list-unstyled.top-posts a {
 
 .js-masonry .item {
     height: 145px;
-    background: #fff;
-    border: 3px solid;
-    margin: 5px;
+    background: #F4F4F4;
+    border: 2px solid;
     transition: 1s all;
+    margin: 5px;
 }
 
 .js-masonry .item {
@@ -396,17 +400,20 @@ input[type="color"] {
 }
 
 .js-masonry:nth-child(2){
-  width: 35%;
+  width: 40%;
 }
 
-.js-masonry:nth-child(4) {
-    width: 65%;
+.js-masonry:nth-child(6){
+  width: 40%;
 }
 
 .js-masonry:nth-child(7){
-  width: 65%;
+  width: 40%;
 }
 
+.js-masonry:nth-child(11){
+  width: 40%;
+}
 
 .panel {
   border-color: #cfd9D7;
@@ -421,6 +428,12 @@ input[type="color"] {
   text-transform: uppercase;
   background-color: #f6f6f6;
   border-color: #cfd9db;
+}
+
+footer {
+  border-top: 1px solid #d2d6d5;
+  padding: 10px 0;
+  margin-top: 15px;
 }
 
 .see-more {
@@ -792,5 +805,13 @@ i.fa.fa-fw.fa-star-half-o {
 
   50% {
     opacity: 1;
+  }
+}
+
+
+
+@media (max-width: 750px) {
+  .js-masonry {
+    width: 100% !important;
   }
 }

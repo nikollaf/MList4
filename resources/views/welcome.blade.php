@@ -19,11 +19,15 @@
                 </div>
             </div>
             @endforeach
-
-            <div class="col-md-12">
-                {!! $posts->render() !!}
-            </div>
+         
+         
         </div>
+
+           <div class="row">
+                <div class="col-md-12">
+                    {!! $posts->render() !!}
+                </div>
+            </div>
      
     </div>
 </div>

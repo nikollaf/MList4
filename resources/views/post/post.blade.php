@@ -16,7 +16,7 @@
     <hr>
     <div class="container">
         <div class="row">
-        	<div class="col-md-6">
+        	<div class="col-md-6 col-sm-6">
                     {!! Form::open(array('route' => 'vote', 'class' => 'form')) !!}
                     @if (count($vote) > 0)
                         <p>Thanks for your vote!</p>
@@ -71,7 +71,7 @@
                         <a data-toggle="modal" class="btn btn-info btn-success btn-vote" data-target="#loginModal">Login to Vote</a>
                     @endif
         	</div>
-        	<div class="col-md-4 col-md-push-2">
+        	<div class="col-md-4 col-md-push-2 col-sm-3 col-sm-push-2">
         		<h4>More from {{$post->label}}</h4>
                 <ul class="list-unstyled">
                     @foreach ($posts as $post)

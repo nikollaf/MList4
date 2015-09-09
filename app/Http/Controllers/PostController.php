@@ -21,7 +21,7 @@ class PostController extends Controller {
 	 */
 	public function index()
 	{
-        $posts = Post::orderBy('created_at', 'DESC')->approved()->categories()->simplePaginate(10);
+        $posts = Post::orderBy('created_at', 'DESC')->approved()->categories()->simplePaginate(11);
         $top   = Post::take(5)->orderBy('clicks', 'DESC')->currentmonth()->approved()->get();
         $categories = Category::get();
 

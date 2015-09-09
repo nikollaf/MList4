@@ -21,12 +21,12 @@
 </head>
 <body>
     <div class="top-bar">
-        <div class="container-fluid">
-            <p>The place for social and creative outlet for Muslim millenials to share the best posts.</p>
+        <div class="container">
+            <p>The social and creative outlet for Muslim millenials to share the best posts.</p>
         </div>
     </div>
 	<nav class="navbar navbar-default">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle Navigation</span>
@@ -44,7 +44,7 @@
 					@else
                         <li>
                             <button type="button" class="btn btn-add" data-toggle="modal" data-target="#postModal">
-                               <span class="glyphicon glyphicon-plus"></span>
+                               <span class="glyphicon glyphicon-plus"></span> Submit Post
                             </button>
                         </li>
 						<li class="dropdown">
@@ -69,6 +69,19 @@
 
 
 	@yield('content')
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    MList &copy; Copyright {{date('Y')}}
+                </div>
+                <div class="col-md-3">
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
 
 	<!-- Scripts -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
