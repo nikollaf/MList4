@@ -9,7 +9,7 @@
                 @foreach ($posts as $key => $post)
                 <div class="row tag-item collection">
                     <div class="col-md-1 count">
-                        {{ $key + 1 }}
+                        <span style="background-color: {{$color}}">{{ $tag[0] }}</span>
                     </div>
                     <div class="col-md-9">
                         <h4><a class="click-post" target="_blank" data-token="{{ csrf_token() }}" data-post="{{$post->id}}" href="{{$post->url}}">{{ $post->title}}</a></h4>

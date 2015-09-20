@@ -51,7 +51,11 @@ class TagController extends Controller {
 		$categories = Category::get();
 		$category = Category::where('label', 'LIKE', $id)->first();
 		$posts = Post::where('category_id', '=', $category['id'])->orderBy('created_at', 'DESC')->approved()->simplePaginate(5);
-        return view('tags.tag')->with(['posts' => $posts, 'tag' => $category['label'], 'categories' => $categories]);
+        return view('tags.tag')->with(['posts' => $posts, 
+        	'tag' => $category['label'],
+        	'color' => $category['color'], 
+        	'categories' => $categories,
+        	]);
 	}
 
 	/**

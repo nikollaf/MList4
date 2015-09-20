@@ -108,11 +108,13 @@ class PostController extends Controller {
 	 */
 	public function show($id)
 	{
-		$post = Post::where('posts.query_url', '=', $id)->categories()->select('posts.id', 'posts.title', 'posts.url')->first();
+		$post = Post::where('posts.query_url', '=', $id)->categories()->select('posts.id', 'posts.title', 'posts.url', 'posts.votes', 'posts.category_id')->first();
+        
         $posts = Post::take(10)->orderBy('created_at')
             ->where('id', '!=' , $post['id'])
             ->currentmonth()
             ->where('category_id', '=', $post['category_id'])->get();
+
         if (Auth::check()){
         	$vote = Vote::where('user_id', '=', Auth::user()->id)->where('post_id', '=', $post['id'])->first();
         } else {
@@ -122,6 +124,7 @@ class PostController extends Controller {
         $votes = Vote::where('post_id', '=', $post['id'])
         			->select(DB::raw('AVG(vote1) AS vote1average'), DB::raw('AVG(vote2) AS vote2average'), DB::raw('AVG(vote3) AS vote3average'))
         			->first();
+
        	$categories = Category::get();
 
         $data = [

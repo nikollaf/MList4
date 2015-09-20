@@ -44,10 +44,9 @@ class SocialController extends Controller {
     public function getUser($id, Request $request, Guard $auth)
     {
         $userSocial = $this->socialite->driver($id)->user();
-        print_r($userSocial);
        
-        $user = User::where('email', '=', $userSocial->email)
-                            ->orWhere('nickname', '=', $userSocial->nickname)
+        $user = User::where('twitter_id', '=', $userSocial->id)
+                            ->orWhere('facebook_id', '=', $userSocial->id)
                             ->first();
 
         if (! $user) {
@@ -56,11 +55,18 @@ class SocialController extends Controller {
             $user->nickname = $userSocial->nickname;
             $user->email    = $userSocial->email;
             $user->avatar   = $userSocial->avatar;
+            if ($id == 'twitter'){
+                $user->twitter_id = $userSocial->id;
+            } else {
+                $user->facebook_id = $userSocial->id;
+            }
+
             $user->save();
             $this->auth->login($user, true);
         } else {
             $this->auth->login($user, true);
         }
+
         return redirect('/');
     }
 

@@ -19,7 +19,7 @@
         	<div class="col-md-6 col-sm-6">
                     {!! Form::open(array('route' => 'vote', 'class' => 'form')) !!}
                     @if (count($vote) > 0)
-                        <p>Thanks for your vote!</p>
+                        <p>Thanks for your vote! Here are the total votes.</p>
                     @endif
                     
                     <h4>Interesting.</h4> 
@@ -27,7 +27,7 @@
                                           
                         <div class="progress">
                           <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ ($votes->vote1average / 5) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($votes->vote1average / 5) * 100}}%">
-                            <span class="sr-only">{{ ($votes->vote1average / 5) * 100}}</span>
+                            <span class="sr-only">{{ ($votes->vote1average) * 100}}</span>
                           </div>
                         </div>
                     @endif
@@ -40,8 +40,8 @@
                     <h4>Entertaining.</h4>
                     @if(count($vote) > 0)
                         <div class="progress">
-                          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="{{ ($vote->vote2 / 5) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($vote->vote2 / 5) * 100}}%">
-                            <span class="sr-only">{{ ($vote->vote2 / 5) * 100}}</span>
+                          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="{{ ($votes->vote2average / 5) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($votes->vote2average / 5) * 100}}%">
+                            <span class="sr-only">{{ ($votes->vote2average / 5) * 100}}</span>
                           </div>
                         </div>
                     @else
@@ -52,8 +52,8 @@
                     
                      @if(count($vote) > 0)
                         <div class="progress">
-                          <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="{{ ($vote->vote3 / 5) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($vote->vote3 / 5) * 100}}%">
-                            <span class="sr-only">{{ ($vote->vote3 / 5) * 100}}</span>
+                          <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="{{ ($votes->vote3average / 5) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($votes->vote3average / 5) * 100}}%">
+                            <span class="sr-only">{{ ($votes->vote3average / 5) * 100}}</span>
                           </div>
                         </div>
                     @else
@@ -72,7 +72,7 @@
                     @endif
         	</div>
         	<div class="col-md-4 col-md-push-2 col-sm-3 col-sm-push-2">
-        		<h4>More from {{$post->label}}</h4>
+        		<h4>More from {{$categories[0]->label}} </h4>
                 <ul class="list-unstyled">
                     @foreach ($posts as $post)
                         <li><a href="{{$post->query_url}}">{{$post['title']}}</a></li>

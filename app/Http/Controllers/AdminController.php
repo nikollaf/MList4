@@ -98,12 +98,12 @@ class AdminController extends Controller {
 
         $user = User::find($data['id']);
         if ($request->has('admin')) {
-            $user->admin     = $data['admin'];
+            $user->admin     = 'Y';
         } else {
             $user->admin     = 'N';
         }
         if ($request->has('trust')) {
-            $user->trust     = $data['trust'];
+            $user->trust     = 'Y';
         } else {
             $user->trust     = 'N';
         }

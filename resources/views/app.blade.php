@@ -22,7 +22,7 @@
 <body>
     <div class="top-bar">
         <div class="container">
-            <p>The social and creative outlet for Muslim millenials to share the best posts.</p>
+            <p>The outlet for Muslim millenials to share the best posts.</p>
         </div>
     </div>
 	<nav class="navbar navbar-default">
