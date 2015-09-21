@@ -37,13 +37,13 @@ return [
 	'facebook' => [
 		'client_id' => '1591385067814812',
 		'client_secret' => '222b3842dd7ced5f534df0cd55aab4d8',
-		'redirect' => 'http://localhost:8000/user/facebook'
+		'redirect' => env('FACEBOOK')
 	],
 
 	'twitter' => [
 		'client_id' => 'eqo1hK4rZfoeVkkOBnGMIjBKs',
 		'client_secret' => 'X0B3kh5tQ2UGUw7ye4437t6bHzalTwnOHmkQTaladAUtXIl4VZ',
-		'redirect' => 'http://localhost:8000/user/twitter'
+		'redirect' => env('TWITTER')
 	],
 
 ];
