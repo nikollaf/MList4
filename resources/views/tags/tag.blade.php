@@ -8,7 +8,7 @@
             <div class="col-md-8">
                 @foreach ($posts as $key => $post)
                 <div class="row tag-item collection">
-                    <div class="col-md-1 count">
+                    <div class="col-md-2 col-lg-1 count hidden-xs">
                         <span style="background-color: {{$color}}">{{ $tag[0] }}</span>
                     </div>
                     <div class="col-md-9">
