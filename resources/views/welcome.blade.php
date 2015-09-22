@@ -31,7 +31,7 @@
      
     </div>
 </div>
-<div class="categories">
+<div class="categories hidden-xs">
         @foreach ($categories as $category)
             <a style="border-color: {{$category->color}}; color: {{$category->color}}" href="/tag/{{$category->label}}">{{$category->label}}</a>
         @endforeach
