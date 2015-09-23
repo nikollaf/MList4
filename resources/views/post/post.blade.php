@@ -72,7 +72,7 @@
                     @endif
         	</div>
         	<div class="col-md-4 col-md-push-2 col-sm-3 col-sm-push-2">
-        		<h4>More from {{$categories[0]->label}} </h4>
+        		<h4>Related Posts </h4>
                 <ul class="list-unstyled">
                     @foreach ($posts as $post)
                         <li><a href="{{$post->query_url}}">{{$post['title']}}</a></li>

@@ -23,7 +23,9 @@ class AdminController extends Controller {
     {
         $approve = $request->query('approve');
 
-        $posts = Post::orderBy('created_at', 'DESC')->where('approval', '=', $approve)->categories()->simplePaginate(15);
+        $posts = Post::orderBy('created_at', 'DESC')->where('approval', '=', $approve)->categories()
+                    ->select('posts.id', 'user_id', 'title', 'url', 'query_url', 'approval', 'label')
+                    ->simplePaginate(15);
         $categories = Category::get();
 
         $data = [
@@ -52,13 +54,15 @@ class AdminController extends Controller {
     public function store(Request $request)
     {
         $data = $request->all();
+
         $post = Post::find($data['id']);
         $post->title        = $data['title'];
         $post->query_url    = str_slug($data['title'], '-');
         $post->url          = $data['url'];
-        $post->category     = $data['category'];
+        $post->category_id  = $data['category_id'];
         $post->approval     = $data['approval']; 
         $post->save();
+
         return redirect()->back()->with('success', 'Your post has been saved.');
     }
 

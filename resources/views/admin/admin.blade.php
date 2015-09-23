@@ -23,7 +23,7 @@
                         <h5>Url</h5>
                         <input type="text" class="form-control" name="url" value="{{$post->url}}"/>
                         <h5>Category</h5>
-                        <select name="category" class="form-control">
+                        <select name="category_id" class="form-control">
                         <option value="{{$post->category}}" value="{{$post->category_id}}" selected="selected">{{$post->label}}</option>
                         @foreach ($categories as $category)
                                 

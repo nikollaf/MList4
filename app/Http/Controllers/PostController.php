@@ -58,7 +58,8 @@ class PostController extends Controller {
         $post->query_url    = str_slug($data['title'], '-');
         $post->url          = $data['url'];
         $post->category_id  = $data['category_id'];
-        if (Auth::user()->trust = 'Y'){
+
+        if (Auth::user()->syncOriginal()->trust == 'Y'){
             $post->approval = 'Y';
             $message = 'Your post has been submitted!';
         } else {

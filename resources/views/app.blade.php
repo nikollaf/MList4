@@ -61,7 +61,7 @@
 	</nav>
 
     @if (Session::get('success'))
-    <div class="alert alert-success alert-block">
+    <div class="alert alert-success alert-block text-center">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         {{ Session::get('success') }}
     </div>
@@ -158,7 +158,7 @@
                         <br>
                         @foreach ($categories as $category)
                             <div class="category-group col-md-3">
-                                <input type="radio" name="category_id" value="{{$category->id}}">
+                                <input type="radio" required name="category_id" value="{{$category->id}}">
                                 <label for="category" style="color: {{$category->color}}">
                                     {{$category->label}}
                                 </label>
