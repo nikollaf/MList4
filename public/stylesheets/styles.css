@@ -25,11 +25,33 @@ h1, h2, h3, h4, h5, h6 {
     color: white !important;
 }
 
+
+.tags-a {
+  color: #fff;
+  background: white;
+  border-radius: 15px;
+  padding: 2px 10px !important;
+  margin-right: 5px;
+  display: inline-block;
+  line-height: 22px;
+  border: 1px solid;
+}
 .categories {
   position: absolute;
   bottom: 0;
   height: 20px;
   
+}
+
+.navbar-brand {
+  font-family: 'Poiret One', cursive;
+}
+
+.tag-nav {
+  padding: 0;
+  margin: 0;
+  margin-top: -7px;
+  margin-bottom: 0;
 }
 
 .navbar {
@@ -583,12 +605,12 @@ i.fa.fa-fw.fa-star-half-o {
 .tags--postTags {
     font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
     letter-spacing: -0.02em;
-    font-weight: 400;
-    font-style: normal;
-    color: rgba(0,0,0,0.44);
     font-size: 13px;
     letter-spacing: 0;
     text-transform: none;
+    font-weight: 400;
+    font-style: normal;
+    color: rgba(0,0,0,0.44);
 }
 .tags--postTags.tags--light>a {
     color: rgba(0,0,0,0.6);

@@ -78,13 +78,6 @@
                         <li><a href="{{$post->query_url}}">{{$post['title']}}</a></li>
                     @endforeach
                 </ul>
-
-                <h4>Categories</h4>
-                <div class="tags tags--postTags tags--light">
-                    @foreach ($categories as $category)
-                        <a style="border-color: {{$category->color}}; color: {{$category->color}}" href="/tag/{{$category->label}}">{{$category->label}}</a>
-                    @endforeach
-                </div>
         	</div>
         </div>
     </div>

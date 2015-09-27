@@ -4,8 +4,9 @@
 @section('content')
     <div class="container tag">
         <div class="row">
-            <h1 class="text-capitalize">{{ $tag }}</h1>
+            
             <div class="col-md-8">
+                <h1 class="text-capitalize">{{ $tag }}</h1>
                 @foreach ($posts as $key => $post)
                 <div class="row tag-item collection">
                     <div class="col-md-2 col-lg-1 count hidden-xs">
@@ -24,12 +25,7 @@
                 @endforeach
             </div>
             <div class="col-md-4">
-                <h4>Categories</h4>
-                <div class="tags tags--postTags tags--light">
-                    @foreach ($categories as $category)
-                        <a style="border-color: {{$category->color}}; color: {{$category->color}}" href="/tag/{{$category->label}}">{{$category->label}}</a>
-                    @endforeach
-                </div>
+            
 
             </div>
         </div>

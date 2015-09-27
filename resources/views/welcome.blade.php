@@ -2,6 +2,7 @@
 @section('title', 'Latest Posts')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -30,10 +31,5 @@
             </div>
      
     </div>
-</div>
-<div class="categories hidden-xs">
-        @foreach ($categories as $category)
-            <a style="border-color: {{$category->color}}; color: {{$category->color}}" href="/tag/{{$category->label}}">{{$category->label}}</a>
-        @endforeach
 </div>
 @endsection
