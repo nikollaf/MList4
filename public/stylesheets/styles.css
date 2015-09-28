@@ -54,6 +54,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
 }
 
+.tag-nav button.navbar-toggle.collapsed {
+  background-color: rgb(208, 208, 208);
+  border-radius: 25px;
+}
+
+.tag-nav span.icon-bar {
+  color: white;
+}
+
 .navbar {
   border: 0;
   border-radius: 0;
