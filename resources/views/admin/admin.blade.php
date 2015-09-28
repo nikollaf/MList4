@@ -4,7 +4,7 @@
     <div class="container">
         @include('admin.nav')
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 @foreach ($posts as $post)
                     <div class="row">
                         <div class="col-md-1">
@@ -12,8 +12,11 @@
                                 <span class="glyphicon glyphicon-edit"></span>
                             </button>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <h4><a href="{{$post->url}}">{{ $post->title}}</a></h4>
+                        </div>
+                        <div class="col-md-1">
+                            <h4>{{$post->clicks}}</h4>
                         </div>
                     </div>
                     <div class="collapse collapse-form" id="{{$post->query_url}}">

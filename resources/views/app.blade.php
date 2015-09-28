@@ -111,7 +111,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    MList &copy; Copyright {{date('Y')}}
+                    MuslimDowntime &copy; Copyright {{date('Y')}}
                 </div>
                 <div class="col-md-3">
                     

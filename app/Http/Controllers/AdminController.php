@@ -24,7 +24,7 @@ class AdminController extends Controller {
         $approve = $request->query('approve');
 
         $posts = Post::orderBy('created_at', 'DESC')->where('approval', '=', $approve)->categories()
-                    ->select('posts.id', 'user_id', 'title', 'url', 'query_url', 'approval', 'label')
+                    ->select('posts.id', 'user_id', 'title', 'url', 'query_url', 'approval', 'label', 'clicks')
                     ->simplePaginate(15);
         $categories = Category::get();
 
